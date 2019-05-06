@@ -81,11 +81,6 @@ Qoobe107Driver.prototype.savePageData = function(data, cb) {
        
 };
 
-/**
- * Callback for get page data
- * 
- * @callback loadPageDataCallback
- */
  
  
 /**
