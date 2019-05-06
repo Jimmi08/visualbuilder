@@ -95,7 +95,13 @@ class qoobbuilder
          e107_require_once($addonFile);
 				  
 				 $addonClass = $builder_plugin . '_visualbuilder';
-				 $class = new $addonClass();	 
+				 
+         if(!class_exists($addonClass))
+    			{
+    				continue;
+    			}		
+      
+         $class = new $addonClass();	 
 				 //$t = get_class_methods($class);
 				 if(!method_exists($addonClass, 'priority'))
 				 {
@@ -108,7 +114,8 @@ class qoobbuilder
       }
 
 		} 
-		
+ 
+    
 		        
     // https://stackoverflow.com/questions/1597736/how-to-sort-an-array-of-associative-arrays-by-value-of-a-given-key-in-php
 		// fatal erroe because site because  <=>
@@ -129,7 +136,7 @@ class qoobbuilder
 		 $newAddonList[] = $addon['name'];
  
 		}
- 
+    
 	  e107::getPlugConfig(VB_PLUGINNAME)->set('addon_list', $newAddonList)->save(true);
 
 	}
@@ -145,8 +152,8 @@ class qoobbuilder
 	public function getAddonConfig($method = 'config', $nocache = false  )
 	{
 		// Re-use the statically cached value to save memory.
-		static $addonConfig;
-		
+	  $addonConfig = array();
+  
 		if(!empty($addonConfig))
 		{
 			return $addonConfig;
@@ -155,13 +162,13 @@ class qoobbuilder
     /* with priority you don't need alter config method  */
 		foreach($this->addonList as $plugin)
 		{
-
+ 
 			$file = e_PLUGIN . $plugin . '/e_visualbuilder.php';
 			if(!is_readable($file))
 			{
 				continue;
 			}
-
+      
 			e107_require_once($file);
 			$addonClass = $plugin . '_visualbuilder';
 			
@@ -172,15 +179,14 @@ class qoobbuilder
 			}				
 			
 			$class = new $addonClass();
-
+ 
       // plugin has to have method with name config
       if($class && method_exists($class, $method))
 			{
 				// this works too:  $addonConfig = $class->$method($addonConfig);
-        
-        $addonConfig = $class->$method($addonConfig);
+        $addonConfig = $class->$method($addonConfig);  
 			}
-      
+ 
 			if(!is_array($addonConfig))
 			{
 				continue;
@@ -188,7 +194,7 @@ class qoobbuilder
  
  
 		}	
-		
+ 
 		// override with actual theme
 		$sitetheme = e107::getPref('sitetheme');
     $file = e_THEME . $sitetheme. '/e_visualbuilder.php';   
@@ -209,7 +215,7 @@ class qoobbuilder
 			}				
 			
 		}
-   
+ 
 		return $addonConfig;	
 	}
 	

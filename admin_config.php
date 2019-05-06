@@ -356,7 +356,7 @@ class qoobbuilder_data_form_ui extends e_admin_form_ui
  
    			// $query['use_ajax'] = 1;
 			$query = http_build_query($query,null, '&amp;');
-			$editurl = VB_PATH."/qoobbuilder.php?".$query;
+			$editurl = VB_PATH_ABS."qoobbuilder.php?".$query;
 
 			$text .= '<div class="cube-button">
 			  <a href="'.$editurl.'" target="_blank" ><i class="cube"></i><span>Edit with Visual Builder</span></a></div>';

@@ -36,7 +36,7 @@ Qoobe107Driver.prototype.getIframePageUrl = function() {
  * @returns {String}
  */
 Qoobe107Driver.prototype.exit = function() {
-    window.location.href = 'visualbuilder/admin_config.php?mode=main&action=list';
+    window.location.href = 'admin_config.php?mode=main&action=list';
 };
  ;
  
