@@ -1,0 +1,72 @@
+<div class="qoob-block qoob-cards qoob-cards_v2 qoob-cards_v2-{{id}}">
+        <div class="qb-container">
+            <div class="qoob-header">
+                {{#if header}}
+                    <h2 class="qoob-header__title qoob-header__title_color_black">{{header}}</h2>
+                {{/if}}
+                {{#if description}}
+                    <div class="qoob-header__description qoob-header__cards__description_v2 qoob-header__description_color_black">
+                       {{{description}}}
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+        <div class="qb-container">
+            {{#if cards.length}}
+                {{#each_with_sort cards "order"}}
+                    <div class="qb-column qb-1-3 qb-mobile-1-1 {{#ifIsNthItem nth=3}} qb-column-margin-none {{/ifIsNthItem}}">
+                        <div class="qoob-card qoob-card_v2">
+                            <div class="qoob-card__item qoob-card__item_{{type}}" style="border-color: {{borderColor}};">
+                                    <div class="qoob-card__front" style="background-color: {{bgColorFront}};">
+                                        <div class="qoob-card__inner">
+                                        {{#if iconFront}}
+                                            <div class="qoob-card__icon"><span class="{{iconFront}}"></span></div>
+                                        {{/if}}
+                                        {{#if headerFront}}
+                                            <div class="qoob-card__header"><h4 class="qoob-card__headertext qoob-card__headertext_v2">{{headerFront}}</h4></div>
+                                        {{/if}}
+                                        {{#if descriptionFront}}
+                                            <div class="qoob-card__description">{{{descriptionFront}}}</div>
+                                        {{/if}}
+                                        </div>
+                                    </div>
+                                    <div class="qoob-card__back" style="background-color: {{bgColorFront}};">
+                                    <div class="qoob-card__inner">
+                                        {{#if iconBack}}
+                                            <div class="qoob-card__icon"><span class="{{iconBack}}"></span></div>
+                                        {{/if}}
+                                        {{#if headerBack}}
+                                            <div class="qoob-card__header"><h4 class="qoob-card__headertext qoob-card__headertext_v2">{{headerBack}}</h4></div>
+                                        {{/if}}
+                                        {{#if descriptionBack}}
+                                            <div class="qoob-card__description">{{{descriptionBack}}}</div>
+                                        {{/if}}
+                                        </div>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each_with_sort}}
+            {{/if}}
+        </div>
+</div>
+
+<script type="text/javascript">
+    jQuery('.qoob-cards_v2-{{id}} .qoob-card__item').on('click', function() {
+        jQuery(this).toggleClass('qoob-card__item_flipped');
+    });
+    jQuery(document).ready(function() {
+        var borderWidth = parseInt(jQuery('.qoob-cards_v2-{{id}}').find('.qoob-card__item').css("border-width"));
+
+        jQuery('.qoob-cards_v2-{{id}}').find('.qoob-card__inner').each(function(){
+            jQuery(this).parents('.qoob-card').height(jQuery(this).outerHeight() + borderWidth * 2);
+        });
+    });
+    jQuery( window ).resize(function() {
+        jQuery('.qoob-cards_v2-{{id}}').find('.qoob-card').height('');
+        var borderWidth = parseInt(jQuery('qoob-cards_v2-{{id}}').find('.qoob-card__item').css("border-width"));
+        jQuery('.qoob-cards_v2-{{id}}').find('.qoob-card__inner').each(function(){
+            jQuery(this).parents('.qoob-card').height(jQuery(this).outerHeight() + borderWidth * 2);
+        });
+    });
+</script>

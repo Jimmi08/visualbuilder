@@ -1,0 +1,21 @@
+<% if (label){ %>
+	<div class="field-color-picker__title">
+		<%= label %>
+	</div>
+<% } %>
+<div class="field-color-picker__container" style="background-color: <%= value %>;">
+	<input type="text" class="field-color-picker__input" name="<%= name %>" value="<%= value %>">
+</div>
+<% if (colors){ %>
+	<div class="field-color-picker__colors-list">
+	    <% _.each( colors, function( color , index){ %>
+			<% if (index !== 0 && index % 6 === 0 ) { %>
+				</div>
+				<div class="field-color-picker__colors-list">
+			<% } %>
+	        <div class="field-color-picker__color theme-colors" data-color="<%= color %>" style="background-color: <%= color %>">
+	            <span></span>
+	        </div>
+	    <% }); %>
+	</div>
+<% } %>

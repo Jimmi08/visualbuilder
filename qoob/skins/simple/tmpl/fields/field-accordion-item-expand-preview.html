@@ -1,0 +1,23 @@
+<h3 class="title-accordion inner-settings-expand">
+	<span class="draggable">
+		<span></span>
+		<span></span>
+		<span></span>
+	</span>
+	<% if (!hideAddDeleteBtn) { %>
+		<span class="field-accordion-item__delete">
+			<i class="fa fa-trash-o"></i>
+		</span>
+	<% } %>
+	<% if( image != undefined ) {%>
+		<span class="preview-image">
+			<img src="<%= image %>" />
+		</span>
+	<% } %>
+	<span class="title-item <% if (hideAddDeleteBtn) { %>title-item__long<% } %>">
+		<%= title %>
+	</span>
+	<span class="arrow"></span>
+</h3>
+<div class="settings-blocks">
+</div>

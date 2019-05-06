@@ -1,0 +1,77 @@
+{
+    "name": "",
+    "groups": "testimonial",
+    "template": "template.hbs",
+    "settings": [{
+        "name": "header",
+        "label": "Header",
+        "type": "text"
+    }, {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea"
+    }, {
+        "name": "testimonial",
+        "label": "Testimonials",
+        "type": "accordion",
+        "settings": [{
+            "name": "title",
+            "label": "Name",
+            "type": "text"
+        }, {
+            "name": "company",
+            "label": "Company",
+            "type": "text"
+        }, {
+            "name": "text",
+            "label": "Testimonial",
+            "type": "textarea"
+        }, {
+            "name": "image",
+            "label": "Person",
+            "type": "image",
+            "tags": ["person"]
+        }]
+    }],
+    "defaults": {
+        "header": "Reviews of our clients",
+        "description": "<p>We're always here to give you a helping hand</p>",
+        "testimonial": [{
+            "title": "Steve Blaster",
+            "text": "<p>Qoob is truly one of the simple and user-friendly page builders. It took us a little time to get started with our new project. We've created several sites based on Qoob and really pleased with the results we've got.</p>",
+            "company": "Irrida E-store",
+            "image": "%block_url%/assets/img/person.jpg",
+            "order": 0
+        }, {
+            "title": "Lee Chong",
+            "text": "<p>I really love this cute page creator. You're able to create incredible website that will showcase your projects. I have no doubts you really need to try it.</p>",
+            "image": "%block_url%/assets/img/person1.jpg",
+            "company": "photographer&illustrator",
+            "order": 1
+        }, {
+            "title": "Mark Jones",
+            "text": "<p>No words but emotions... You can really see how your wishes fulfill. Qoob is the greatest helper in launching your startup and making it succesful.</p>",
+            "image": "%block_url%/assets/img/person2.jpg",
+            "company": "BE2bill solutions",
+            "order": 2
+        }, {
+            "title": "Andrew McDonald",
+            "text": "<p>That's really wow how powerful Qoob is! Just a few click and your custmozied site is done. With its interface editing might seem to be a breeze. No efforts, no difficulties, nothing...</p>",
+            "image": "%block_url%/assets/img/person3.jpg",
+            "company": "onlycoffee bar&restaurant",
+            "order": 3
+        }, {
+            "title": "Luis Ricardo",
+            "text": "<p>It's amazing how easily you can build the website of your dream. Just move the blocks and you're done! No coding and desigh skills are needed. It's really a miracle!</p>",
+            "image": "%block_url%/assets/img/person4.jpg",
+            "company": "Source.IT.com",
+            "order": 4
+        }, {
+            "title": "Rita Spenser",
+            "text": "<p>Well done! Let experts do your job for you and you will succeed. We've tried the best website builder&editor and never regreted. The code is perfectly clean and the documentation is well prepared. Everything is ready and works properly.</p>",
+            "image": "%block_url%/assets/img/person5.jpg",
+            "company": "nicebouquet online shop",
+            "order": 5
+        }]
+    }
+}

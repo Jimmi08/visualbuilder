@@ -1,0 +1,57 @@
+<label class="field-label"><%= label %></label>
+
+<div class="field-image-container<% if (value === '') { %> empty <% } %>">
+    <div class="field-image__preview">
+        <img class="field-image__preview-image show-media-center" src="<%= value %>" />
+        <% if (!hideDeleteButton || hideDeleteButton !== 1) { %>
+            <i class="field-image__remove-image fa fa-times"></i>
+        <% } %>
+    </div>
+    <div class="field-image__noimage show-media-center">
+        <i class="field-image__noimage-icon fa fa-plus"></i>
+    </div>
+    <div class="field-drop-zone"><span class="field-drop-zone-text"><%= drop_here %></span></div>
+    <div class="field-upload-error">
+        <div class="field-upload-error__text">
+            <span class="field-upload-error__text-bold"><%= error %></span> <%= error_text %>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" class="field-image__url-hidden" name="<%= name %>" value="<%= value %>">
+
+<% if(images) { %>
+<div class="others">
+    <% for (var i = 0; i < images.length; i++) { %>
+        <div class="others__item">
+            <div class="others-item__image" style="background-image: url('<%= images[i] %>');"></div>
+        </div>
+    <%}%>
+</div>
+<% } %>
+
+<div class="media-center clearfix">
+    <button type="button" class="show-media-center media-center__button">
+        <i class="media-center__button_image-icon fa fa-file-image-o"></i>
+        <%= media_center %>
+    </button>
+
+    <div class="qoob-dropdown media-center__button-more">
+        <button class="qoob-dropdown-toggle" type="button">
+            <div class="dot">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <ul class="qoob-dropdown-content">
+            <% _.each( customItems, function( item ){ %>
+                <li>
+                    <a href="#" data-id="<%- item.id %>" class="action">
+                        <%- item.label %>
+                    </a>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</div>

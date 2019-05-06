@@ -1,0 +1,106 @@
+{
+    "name": "",
+    "groups": "iconBox",
+    "template": "template.hbs",
+    "settings": [{
+        "name": "header",
+        "label": "Header",
+        "type": "text"
+    }, {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea"
+    }, {
+        "name": "cards",
+        "label": "Cards",
+        "type": "accordion",
+        "settings": [{
+            "name": "title",
+            "label": "Title",
+            "type": "text"
+        }, {
+            "name": "type",
+            "label": "Card type",
+            "type": "select",
+            "options": [{
+                "id": "v1",
+                "val": "varsion 1"
+            }, {
+                "id": "v2",
+                "val": "varsion 2"
+            }, {
+                "id": "v3",
+                "val": "varsion 3"
+            }]
+        }, {
+            "name": "borderColor",
+            "type": "colorpicker",
+            "label": "Border color",
+            "colors": ["#905cc2 ", "#efb20d ", "#48a348 "]
+        }, {
+            "name": "headerFront",
+            "label": "Header front",
+            "type": "text"
+        }, {
+            "name": "descriptionFront",
+            "label": "Text front",
+            "type": "textarea"
+        }, {
+            "name": "bgColorFront",
+            "type": "colorpicker",
+            "label": "Background color",
+            "colors": ["#5b3381 ", "#efb20d ", "#48a348 "]
+        }, {
+            "name": "headerBack",
+            "label": "Header back",
+            "type": "text"
+        }, {
+            "name": "descriptionBack",
+            "label": "Text back",
+            "type": "textarea"
+        }, {
+            "name": "bgColorBack",
+            "type": "colorpicker",
+            "label": "Background color",
+            "colors": ["#5b3381", "#efb20d", "#48a348"]
+        }]
+    }],
+    "defaults": {
+        "header": "Optimize your website to your needs",
+        "description": "<p>Check out another option for making cards more personal</p>",
+        "cards": [{
+            "title": "Card 1",
+            "type": "v1",
+            "borderColor": "#905cc2",
+            "headerFront": "Be smart",
+            "headerBack": "Call to action block",
+            "descriptionFront": "<p>Add your own text here. Make it short and clear</p>",
+            "descriptionBack": "<p>Hover over card to see the flip in action</p>",
+            "bgColorFront": "#5b3381",
+            "bgColorBack": "#5b3381",
+            "order": 0
+        }, {
+            "title": "Card 2",
+            "type": "v2",
+            "borderColor": "#efb20d",
+            "headerFront": "Be unique",
+            "headerBack": "Call to action block",
+            "descriptionFront": "<p>Add your own text here. Make it short and clear</p>",
+            "descriptionBack": "<p>Hover over card to see the flip in action</p>",
+            "bgColorFront": "#efb20d",
+            "bgColorBack": "#efb20d",
+            "order": 1
+        }, {
+            "title": "Card 3",
+            "type": "v3",
+            "borderColor": "#48a348",
+            "headerFront": "Be yourself",
+            "headerBack": "Call to action block",
+            "descriptionFront": "<p>Add your own text here. Make it short and clear</p>",
+            "descriptionBack": "<p>Hover over card to see the flip in action</p>",
+            "bgColorFront": "#48a348",
+            "bgColorBack": "#48a348",
+            "order": 2
+        }]
+    }
+}

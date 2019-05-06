@@ -1,0 +1,81 @@
+/* CSS Document */
+.cube-button-block {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: -10px;
+    z-index: 1001;
+}
+.cube-button {
+    display: inline-block;
+    margin: 15px 0 20px;
+	padding: 5px;
+    background: #0093e8;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.edit-post-header .cube-button-block{
+	margin-left: 15px;
+	margin-right: 15px;
+	width: auto;
+	overflow: visible;
+	position: static;
+	margin-bottom: 0;
+	z-index: 99;
+}
+.edit-post-header .cube-button{
+	margin: 0;
+	padding: 1px;
+}
+.edit-post-header .cube-button a, .edit-post-header .cube-button a:hover{
+	font-size: 13px;
+	padding: 6px 15px 2px 11px;
+}
+.cube-button i.cube {
+    display: inline-block;
+    width: 22px;
+    height: 21px;
+    vertical-align: middle;
+    margin: 0 7px 0 0;
+    background: transparent url('../../images/qoob_button.png') no-repeat;
+}
+.cube-button a,
+.cube-button a:hover {
+    display: block;
+    font-size: 15px;
+    line-height: 18px;
+    color: #fff;
+    padding: 8px 15px 4px 8px;
+    text-decoration: none;
+}
+.cube-button a,
+.cube-button a:hover,
+.cube-button a:focus {
+    outline: none;
+    border: 0;
+}
+.cube-button span {
+    display: inline-block;
+    vertical-align: middle;
+    height: 22px;
+}
+.cube-button:hover {
+    background: #03a9f4;
+    border-color: #03a9f4;
+}
+.cube-button:active {
+    background: #022c44;
+    border-color: #022c44;
+    -webkit-box-shadow: inset 0 2px 0 #022c44;
+    box-shadow: inset 0 2px 0 #022c44;
+    -webkit-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    transform: translateY(1px);
+}
+.cube-button:active,
+.cube-button:focus {
+    outline: 0;
+}
+.qoob-filters {
+    margin-left: 18px;
+}

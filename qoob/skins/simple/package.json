@@ -1,0 +1,34 @@
+{
+  "name": "qoob_simple_skin",
+  "version": "1.0.0",
+  "description": "qoob_simple_skin",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webarkio/qoob.git"
+  },
+  "keywords": [
+    "qoob",
+    "builder"
+  ],
+  "author": "Maksym Pomazan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webarkio/qoob/issues"
+  },
+  "homepage": "https://github.com/webarkio/qoob#readme",
+  "devDependencies": {
+    "grunt": "^1.0.3",
+    "grunt-cli": "^1.3.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "load-grunt-tasks": "^4.0.0"
+  }
+}

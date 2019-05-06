@@ -1,0 +1,145 @@
+"use strict";
+
+// Check for jQuery.
+if (typeof(jQuery) === 'undefined') {
+    var jQuery;
+    // Check if require is a defined function.
+    if (typeof(require) === 'function') {
+        jQuery = $ = require('jquery');
+        // Else use the dollar sign alias.
+    } else {
+        jQuery = $;
+    }
+}
+
+;
+(function($) {
+    $.fn.qoobSelect = function() {
+        $(this).each(function() {
+            var optionsHover = false,
+                $select = $(this),
+                children = $select.children('option'),
+                selectedOptionText,
+                selectedOptionValue = $select.find('option:selected').val() || $select.find('option:first').val();
+
+            if ($select.find('option:selected').data('icon') !== undefined) {
+                selectedOptionText = '<i class="' + $select.find('option:selected').data('icon') + '"></i>';
+            } else {
+                selectedOptionText = $select.find('option:selected').html() || $select.find('option:first').html() || "";
+                selectedOptionText = selectedOptionText.replace(/"/g, '&quot;');
+            }
+
+            var $options = $('<ul class="qoob-select-dropdown"></ul>');
+
+            $select.wrap('<div class="qoob-select"></div>');
+
+            /* Create dropdown structure. */
+            if (children.length) {
+                children.each(function() {
+                    if ($(this).data('title') !== undefined) {
+                        $options.append($('<li data-value="' + $(this).val() + '" title="' + $(this).data('title') + '"><span>' + $(this).html() + '</span></li>'));
+                    } else if ($(this).data('icon') !== undefined) {
+                        $options.append($('<li data-value="' + $(this).val() + '" title="' + $(this).html() + '"><i class="' + $(this).data('icon') + '"></i></li>'));
+                    } else {
+                        $options.append($('<li data-value="' + $(this).val() + '"><span>' + $(this).html() + '</span></li>'));
+                    }
+                });
+            }
+
+            var $selectedValue = $('<div />', {
+                'class': 'qoob-selected-value',
+                'data-value': selectedOptionValue,
+                'title': $select.find('option:selected').html(),
+                'tabindex': 0
+            }).append(selectedOptionText);
+
+            $select.before($selectedValue);
+            $selectedValue.after($options);
+
+            $options.find('li').each(function(i) {
+                $(this).click(function(e) {
+                    // Check if option element is disabled
+                    if (!$(this).hasClass('disabled')) {
+                        $options.find('li').removeClass('active');
+                        $(this).toggleClass('active');
+
+                        selectedOptionValue = $(this).data('value');
+                        
+                        $selectedValue[0].dataset.value = selectedOptionValue;
+
+                        $selectedValue.html($(this).html());
+
+                        // Set title
+                        if ($(this).prop('title') != undefined) {
+                            $selectedValue[0].title = $(this).prop('title');
+                        }
+
+                        $select.find('option').eq(i).prop('selected', true);
+
+                        $options.trigger('close');
+
+                        // Trigger change input event
+                        $select.trigger('change');
+                    }
+
+                    e.stopPropagation();
+                });
+            });
+
+            $selectedValue.on('click', function() {
+                if ($options.hasClass('active')) {
+                    $options.trigger('close');
+                    return;
+                }
+
+                if (!$options.is(':visible')) {
+                    $options.trigger('open');
+
+                    optionsHover = true;
+
+                    var selectedOption = $options.find('li').filter(function() {
+                        return $(this).data('value').toLowerCase() === selectedOptionValue.toLowerCase();
+                    });
+
+                    $(selectedOption).addClass('selected');
+                    $(selectedOption).prependTo($options);
+                }
+            });
+
+            // Listen to open and close event
+            $options.on({
+                'open': function() {
+                    $(this).addClass('active');
+                    $(this).slideDown({
+                            queue: false,
+                            duration: 300,
+                            easing: 'easeOutCubic'
+                        })
+                        .animate({ opacity: 1 }, { queue: false, duration: 300, easing: 'easeOutSine' });
+                },
+                'close': function() {
+                    $(this).fadeOut(225);
+                    $(this).removeClass('active');
+                    $options.find('.selected').removeClass('selected');
+                }
+            });
+
+            $selectedValue.on('blur', function() {
+                $options.trigger('close');
+            });
+
+            $options.hover(function() {
+                optionsHover = true;
+            }, function() {
+                optionsHover = false;
+            });
+
+            // close select drop down
+            $(window).one({
+                'click': function() {
+                    optionsHover || $options.trigger('close');
+                }
+            });
+        });
+    }
+}(jQuery));

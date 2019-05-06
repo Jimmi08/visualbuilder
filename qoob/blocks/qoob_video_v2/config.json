@@ -1,0 +1,38 @@
+{
+    "name": "",
+    "groups": "video",
+    "template": "template.hbs",
+    "settings": [{
+        "name": "header",
+        "label": "Header",
+        "type": "text"
+    }, {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea"
+    }, {
+        "name": "bgImageUrl",
+        "label": "Background image",
+        "type": "image"
+    }, {
+        "name": "src",
+        "label": "Video",
+        "type": "video",
+        "tags": ["myVid"],
+        "hideDeleteButton": 1
+    }],
+    "assets": [{
+        "type": "image",
+        "src": "%block_url%/assets/img/video_bg.jpg",
+        "tags": ["nature", "sea", "water", "lake", "waves"]
+    }],
+    "defaults": {
+        "header": "Manage your video elements with simple clicks of the mouse!",
+        "description": "<p>You can add your self-hosted video using the built-in file uploader. Share your ideas with the world!</p>",
+        "bgImageUrl": "%block_url%/assets/img/video_bg.jpg",
+        "src": {
+            "url": "%block_url(assets)%/assets/videos/cube_girl.mp4",
+            "preview": "%block_url%/assets/img/poster.jpg"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "name": "",
+    "groups": "main",
+    "template": "template.hbs",
+    "settings": [{
+        "name": "header",
+        "label": "Header",
+        "type": "text"
+    }, {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea"
+    },
+    {
+        "name": "bgImageUrl",
+        "label": "Background image",
+        "type": "image"
+    }],
+    "assets": [{
+        "type": "image",
+        "src": "%block_url%/assets/img/main_nobtn_bg.jpg",
+        "tags": ["nature", "fog", "mountains", "forest", "wood", "sea", "water", "sky"]
+    }],
+    "defaults": {
+        "header": "It's high time to see Qoob in action",
+        "bgImageUrl": "%block_url%/assets/img/main_nobtn_bg.jpg",
+        "description": "<p>Check out Qoob's distinct features that set it apart from other page creators</p>"
+    }
+}

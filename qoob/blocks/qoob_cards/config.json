@@ -1,0 +1,117 @@
+{
+    "name": "",
+    "groups": "iconBox",
+    "template": "template.hbs",
+    "settings": [
+    {
+        "name": "header",
+        "label": "Header",
+        "type": "text"
+    },
+    {
+        "name": "description",
+        "label": "Description",
+        "type": "text"
+    },
+    {
+        "name": "bgImageUrl",
+        "label": "Background image",
+        "type": "image"
+    },
+    {
+        "name": "cards",
+        "label": "Cards",
+        "type": "accordion",
+        "settings": [
+        {
+            "name": "title",
+            "label": "Title",
+            "type": "text"
+        },
+        {
+            "name": "iconFront",
+            "label": "Icon for front side",
+            "type": "icon",
+            "presets": ["glyphicon glyphicon-heart", "glyphicon glyphicon-search", "glyphicon glyphicon-time", "glyphicon glyphicon-map-marker"]
+        },
+        {
+            "name": "headerFront",
+            "label": "Header front",
+            "type": "text"
+        },
+        {
+            "name": "descriptionFront",
+            "label": "Text front",
+            "type": "textarea"
+        },
+        {
+            "name": "iconBack",
+            "label": "Icon for front side",
+            "type": "icon",
+            "presets": ["glyphicon glyphicon-heart", "glyphicon glyphicon-search", "glyphicon glyphicon-time", "glyphicon glyphicon-map-marker"]
+        },
+        {
+            "name": "headerBack",
+            "label": "Header back",
+            "type": "text"
+        },
+        {
+            "name": "descriptionBack",
+            "label": "Text back",
+            "type": "textarea"
+        }]
+    }],
+    "assets": [
+    {
+        "type": "image",
+        "src": "%block_url%/assets/img/cards_bg.jpg",
+        "tags": ["nature", "fog", "mountains", "rock", "forest", "wood", "sky"]
+    }],
+    "defaults":
+    {
+        "header": "Let the world know about you",
+        "description": "Cards are ideal for presenting your project to the  crowd. Nice animation will bring beguiling effect to your website",
+        "bgImageUrl": "%block_url%/assets/img/cards_bg.jpg",
+        "cards": [
+        {
+            "title": "Card 1",
+            "iconFront": "glyphicon glyphicon-heart",
+            "iconBack": "glyphicon glyphicon-heart",
+            "headerFront": "Live editing",
+            "headerBack": "Call to action block",
+            "descriptionFront": "<p>Qoob provides you with easy-to-use tools to edit and publish the content of the blocks instantly. You will be amazed to get a live preview of your page, that is being edited in real time</p>",
+            "descriptionBack": "<p>Hover over card to see the flip in action</p>",
+            "order": 0
+        },
+        {
+            "title": "Card 2",
+            "iconFront": "glyphicon glyphicon-search",
+            "iconBack": "glyphicon glyphicon-search",
+            "headerFront": "Always looking good",
+            "headerBack": "Call to action block",
+            "descriptionFront": "<p>Your website's pages built by Qoob display suitably on any screen size. Thank to responsive design and Retina ready your vistors will enjoy the viewing in any environment</p>",
+            "descriptionBack": "<p>Hover over card to see the flip in action</p>",
+            "order": 1
+        },
+        {
+            "title": "Card 3",
+            "iconFront": "glyphicon glyphicon-time",
+            "iconBack": "glyphicon glyphicon-time",
+            "headerFront": "Clean and Intuitive UI",
+            "headerBack": "Call to action block",
+            "descriptionFront": "<p>Qoob focuses on the overall design of the website without adding its own elements (frame, buttons and other components). Clean and intuitive UI makes editing simple and straightforward</p>",
+            "descriptionBack": "<p>Hover over card to see the flip in action</p>",
+            "order": 2
+        },
+        {
+            "title": "Card 4",
+            "iconFront": "glyphicon glyphicon-map-marker",
+            "iconBack": "glyphicon glyphicon-map-marker",
+            "headerFront": "Realtime editing mobile version",
+            "headerBack": "Call to action block",
+            "descriptionFront": "<p>It may undoubtedly turn out a wonder for you. With Qoob you can really get your website arranged faster in a tablet mode or even on a mobile device!</p>",
+            "descriptionBack": "<p>Hover over card to see the flip in action</p>",
+            "order": 3
+        }]
+    }
+}

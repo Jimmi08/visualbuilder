@@ -1,0 +1,69 @@
+<div class="qoob-dropdown pages-dropdown">
+    <div class="qoob-dropdown-toggle">
+        <% if (subDomain != null) { %>
+            <div class="pages-dropdown__domain">
+                <%= subDomain %>
+            </div>
+        <% } %>
+        <div class="pages-dropdown__page">
+            <%= page %>
+        </div>
+    </div>
+    <ul class="qoob-dropdown-content pages-dropdown__list">
+        <li class="pages-dropdown__backward">
+            <div class="pages-dropdown__backward-button"><div class="pages-dropdown__backward-button-text"><%= locale_pages %></div></div>
+        </li>
+        <% if (pages) { %>
+            <% _.each( pages, function( page ) { %>
+                <li class="pages-dropdown__list-item">
+                    <a class="pages-dropdown__list-item-link" href="<%= page.url %>"><%= page.title %></a>
+                </li>
+            <% }); %>
+        <% } %>
+    </ul>
+</div>
+<div class="control-buttons clearfix">
+    <button class="control-buttons__button control-buttons__button-save" title="<%= save %>">
+        <span class="save-clock">
+            <span class="minutes-container"><span class="minutes"></span></span>
+            <span class="seconds-container"><span class="seconds"></span></span>
+        </span>
+    </button>
+    <button class="control-buttons__button control-buttons__button-preview<% if (device == 'mobile') { %> control-buttons__button-preview-disabled<% } %>" title="<%= preview %>"></button>
+    <div class="control-buttons__button control-buttons__button-preview-list">
+        <% if (device == "mobile" || device == "tablet") { %>
+            <button class="control-buttons__button control-buttons__button-preview-modes control-buttons__button-preview-modes-disabled" title="<%= devices %>"></button>
+        <% } else { %>
+            <select class="qoob-select-item">
+                <option value="pc" data-icon="fa fa-desktop"><%= desktop %></option>
+                <option value="tablet" data-icon="fa fa-tablet"><%= tablet %></option>
+                <option value="phone" data-icon="fa fa-mobile"><%= phone %></option>
+            </select>
+        <% } %>
+    </div>
+    <div class="qoob-dropdown qoob-dropdown-more control-buttons-dropdown">
+        <button class="qoob-dropdown-toggle" type="button">
+            <div class="dot">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <ul class="qoob-dropdown-content">
+            <li>
+                <div class="autosave clearfix">
+                    <div class="autosave-item-name"><%= autosave %></div>
+                    <label class="autosave-item-switch">
+                        <input type="checkbox" class="autosave-checkbox">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </li>
+            <% if (customMenu) { %>
+                <% _.each( customMenu, function( item ) { %>
+                    <li><a <% if (item.action != '') { %>data-id="<%= item.id %>"<% } %> href="#<%= item.id %>"><%= item.label %></a></li>
+                <% }); %>
+            <% } %>
+        </ul>
+    </div>
+</div>

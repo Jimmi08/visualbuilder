@@ -1,0 +1,18 @@
+{
+    "name": "",
+    "groups": "text",
+    "template": "template.hbs",
+    "settings": [{
+        "name": "header",
+        "label": "Title",
+        "type": "text"
+    }, {
+        "name": "text",
+        "label": "Content",
+        "type": "textarea"
+    }],
+    "defaults": {
+        "header": "Qoob - Realtime Wordpress page composer and editor",
+        "text": "<p>A free website builder offers a great number of tools and features with an intuitive interface. It is a powerful solution that enables you to make a customized website without any prior design and run it with minimum technical knowledge. The first page of your awesome website is just a few clicks away.</p>"
+    }
+}

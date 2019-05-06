@@ -1,0 +1,29 @@
+{
+    "name": "",
+    "groups": "text",
+    "template": "template.hbs",
+    "settings": [{
+        "name": "header",
+        "label": "Title",
+        "type": "text"
+    }, {
+        "name": "text",
+        "label": "Content",
+        "type": "textarea"
+    },
+    {
+        "name": "bgImageUrl",
+        "label": "Background image",
+        "type": "image"
+    }],
+    "assets": [{
+        "type": "image",
+        "src": "%block_url%/assets/img/qoob_text_bg.jpg",
+        "tags": ["sea", "water", "ship", "boat", "sky"]
+    }],
+    "defaults": {
+        "bgImageUrl": "%block_url%/assets/img/qoob_text_bg.jpg",
+        "header": "Do a magic! Make your website appear just by dragging the blocks ",
+        "text": "<p>Create your website using Qoob’s drag’n’drop functionality. Don't worry about your website’s parameters: size, font, indentation. The first page of your great website is just a few clicks away.</p>"
+    }
+}

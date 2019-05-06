@@ -1,0 +1,64 @@
+<div class="backward-button">
+    <div class="backward-button__text">
+        <%= back %>
+    </div>
+</div>
+<div class="settings-block-items">
+    <div class="inner-settings-control">
+        <button class="inner-settings-control__button inner-settings-control__button-search"></button>
+        <button class="inner-settings-control__button inner-settings-control__button-link inner-settings-control__button-disabled"></button>
+        <button class="inner-settings-control__button inner-settings-control__button-reset"></button>
+        <button class="inner-settings-control__button inner-settings-control__button-remove <% if (hideDeleteButton || hideDeleteButton === 1) { %>inner-settings-control__button-disabled<% } %>"></button>
+        <div class="inner-settings-control__search">
+            <div class="field-input-autocomplete">
+                <input class="field-input-autocomplete__text icon-search" type="text" value="" placeholder="<%= search %>">
+                <button class="field-input-autocomplete__icon-search"></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="field-icon-container-inner<%if (!icon.classes) { %> empty<%}%>">
+        <div class="field-icon">
+            <div class="field-icon__selected-icon">
+                <span data-icon-tags="<%= icon.tags %>" class="<%= icon.classes %>"></span>
+            </div>
+        </div>
+
+        <div class="field-icon__noicon">
+            <i class="field-icon__noicon-icon fa fa-plus"></i>
+        </div>
+    </div>
+    
+    <div class="filtered-icons">
+        <div class="search-result-tags">
+            <div class="search-result">
+                <div class="search-result__count search-result__count_half-width">
+                    <span class="search-result__shell-text">
+                        <span class="search-result__text"><%= text_results %>:</span>
+                        <span class="search-result__digit"></span>
+                    </span>
+                    <span class="no-search-result__text"><%= no_search_result %></span>
+                </div>
+                <div class="search-result__tags search-result__tags_half-width">
+                    <span class="search-result__text search-result__text_ellipsis"><%= tags %></span>
+                    <span class="search-result__remove-text"></span>
+                </div>
+            </div>
+        </div>
+        <div class="search-result-all">
+            <div class="search-result">
+                <div class="search-result__count">
+                    <span class="search-result__text"><%= text_all_icons %>:</span>
+                    <span class="search-result__digit"></span>
+                </div>
+            </div>
+        </div>
+        <div class="inview-icons">
+            <div class="settings-media-loader">
+                <svg class="settings-media-loader__circular" viewBox="25 25 50 50">
+                    <circle class="settings-media-loader__path" cx="50" cy="50" r="12" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>

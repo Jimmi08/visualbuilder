@@ -1,0 +1,105 @@
+{
+    "name": "",
+    "groups": "iconBox",
+    "template": "template.hbs",
+    "settings": [{
+        "name": "header",
+        "label": "Header",
+        "type": "text"
+    }, {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea"
+    }, {
+        "name": "bgColor",
+        "type": "colorpicker",
+        "label": "Background color",
+        "colors": ["#ffae02", "#8dc94a", "#5795cc", "#ed4e42", "#a85b97"]
+    }, {
+        "name": "cards",
+        "label": "Cards",
+        "type": "accordion",
+        "settings": [{
+            "name": "title",
+            "label": "Title",
+            "type": "text"
+        }, {
+            "name": "figureForm",
+            "label": "Figure from",
+            "type": "select",
+            "options": [{
+                "id": "square",
+                "val": "square"
+            }, {
+                "id": "rounded",
+                "val": "rounded"
+            }, {
+                "id": "circular",
+                "val": "circular"
+            }, {
+                "id": "rhombus",
+                "val": "rhombus"
+            }]
+        }, {
+            "name": "figureBgColor",
+            "type": "colorpicker",
+            "label": "Figure color",
+            "colors": ["#f0a202 ", "#a8dadc ", "#f45b69 ", "#33032f"]
+        }, {
+            "name": "iconFront",
+            "label": "Icon for front side",
+            "type": "icon",
+            "presets": ["glyphicon glyphicon-heart", "glyphicon glyphicon-search", "glyphicon glyphicon-time", "glyphicon glyphicon-map-marker"]
+        }, {
+            "name": "headerItem",
+            "label": "Header front",
+            "type": "text"
+        }, {
+            "name": "descriptionItem",
+            "label": "Text front",
+            "type": "textarea"
+        }]
+    }],
+    "defaults": {
+        "header": "Experience complete control over the look and feel of your website",
+        "description": "<p>Modify all the elements of cards: shape, color, icon and text in a few clicks</p>",
+        "bgColor": "#535382",
+        "cards": [{
+            "title": "Card 1",
+            "figureForm": "rounded",
+            "figureBgColor" : "#f0a202",
+            "iconFront": "glyphicon glyphicon-heart",
+            "iconBack": "glyphicon glyphicon-heart",
+            "headerItem": "Rounded",
+            "descriptionItem": "<p>Add your own text here. Make it short and clear</p>",
+            "order": 0
+        }, {
+            "title": "Card 2",
+            "figureForm": "square",
+            "figureBgColor" : "#a8dadc",
+            "iconFront": "glyphicon glyphicon-search",
+            "iconBack": "glyphicon glyphicon-search",
+            "headerItem": "Or square",
+            "descriptionItem": "<p>Add your own text here. Make it short and clear</p>",
+            "order": 1
+        }, {
+            "title": "Card 3",
+            "figureForm": "circular",
+            "figureBgColor" : "#f45b69",
+            "iconFront": "glyphicon glyphicon-time",
+            "iconBack": "glyphicon glyphicon-time",
+            "headerItem": "Maybe circular..",
+            "descriptionItem": "<p>Add your own text here. Make it short and clear</p>",
+            "order": 2
+        }, {
+            "title": "Card 4",
+            "figureForm": "rhombus",
+            "figureBgColor" : "#33032f",
+            "iconFront": "glyphicon glyphicon-map-marker",
+            "iconBack": "glyphicon glyphicon-map-marker",
+            "headerItem": "Why not rhombus?",
+            "descriptionItem": "<p>Add your own text here. Make it short and clear</p>",
+            "order": 3
+        }]
+    }
+}

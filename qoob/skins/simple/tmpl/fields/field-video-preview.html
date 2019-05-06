@@ -1,0 +1,69 @@
+<label class="field-label"><%= label %></label>
+
+<div class="field-video-container <% if ((src === '' || src !== '' && !src.hasOwnProperty('url')) || (src.hasOwnProperty('url') && src.url === '')) { %> empty<% } else if (src.hasOwnProperty('preview') && src.preview === '') { %> empty-preview<% } %>">
+    <div class="field-video__preview">
+        <img class="field-video__preview-image show-media-center" src="<%= src.preview %>" />
+        <% if (!hideDeleteButton || hideDeleteButton !== 1) { %>
+            <i class="field-video__remove-video fa fa-times"></i>
+        <% } %>
+    </div>
+
+    <div class="field-video__novideo-preview show-media-center">
+        <i class="field-video__novideo-preview-icon fa fa-play-circle"></i>
+    </div>
+
+    <div class="field-video__novideo show-media-center">
+        <i class="field-video__novideo-icon fa fa-plus"></i>
+    </div>
+
+    <div class="field-drop-zone"><span class="field-drop-zone-text"><%= drop_here %></span></div>
+    <div class="field-upload-error">
+        <div class="field-upload-error__text field-upload-error__text_size">
+            <span class="field-upload-error__text-bold"><%= error %></span> <%= error_text_size %>
+        </div>
+        <div class="field-upload-error__text field-upload-error__text_format">
+            <span class="field-upload-error__text-bold"><%= error %></span> <%= error_text_format %>
+        </div>
+    </div>
+</div>
+
+<input type="hidden" class="field-video__url-hidden" name="<%= name %>" value="<%= src.url %>">
+<input type="hidden" class="field-video__preview-hidden" name="<%= name %>" value="<%= src.preview %>">
+
+<% if(videos) { %>
+    <div class="others">
+        <% for (var i = 0; i < videos.length; i++) { %>
+            <div class="others__item">
+                <% if (videos[i].preview !== '') { %>
+                    <div class="others-item__image" data-src-video="<%= videos[i].url %>" data-src-preview="<%= videos[i].preview %>" style="background-image: url('<%= videos[i].preview %>');"></div>
+                <% } %>
+            </div>
+        <%}%>
+    </div>
+<%}%>
+
+<div class="media-center clearfix">
+    <button type="button" class="show-media-center media-center__button">
+        <i class="media-center__button_image-icon fa fa-file-video-o"></i>
+        <%= media_center %>
+    </button>
+
+    <div class="qoob-dropdown media-center__button-more">
+        <button class="qoob-dropdown-toggle" type="button">
+            <div class="dot">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <ul class="qoob-dropdown-content">
+            <% _.each( customItems, function( item ){ %>
+                <li>
+                    <a href="#" data-id="<%- item.id %>" class="action">
+                        <%- item.label %>
+                    </a>
+                </li>
+            <% }); %>
+        </ul>
+    </div>
+</div>

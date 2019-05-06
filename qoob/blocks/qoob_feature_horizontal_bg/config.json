@@ -1,0 +1,95 @@
+{
+    "name": "",
+    "groups": "iconBox",
+    "template": "template.hbs",
+    "settings": [{
+        "name": "header",
+        "label": "Header",
+        "type": "text"
+    }, {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea"
+    }, {
+        "name": "bgColor",
+        "type": "colorpicker",
+        "label": "Background color",
+        "colors": ["#ffae02 ", "#8dc94a ", "#5795cc ", "#ed4e42 ", "#a85b97 "]
+    }, {
+        "name": "bgImage",
+        "type": "image",
+        "label": "Background image",
+        "tags": ["bg", "background"]
+    }, {
+        "name": "cards",
+        "label": "Cards",
+        "type": "accordion",
+        "settings": [{
+            "name": "title",
+            "label": "Title",
+            "type": "text"
+        }, {
+            "name": "figureBgColor",
+            "type": "colorpicker",
+            "label": "Figure color",
+            "colors": ["#f0a202 ", "#a8dadc ", "#f45b69 ", "#33032f"]
+        }, {
+            "name": "iconFront",
+            "label": "Icon for front side",
+            "type": "icon",
+            "presets": ["glyphicon glyphicon-heart", "glyphicon glyphicon-search", "glyphicon glyphicon-time", "glyphicon glyphicon-map-marker"]
+        }, {
+            "name": "headerItem",
+            "label": "Header front",
+            "type": "text"
+        }, {
+            "name": "descriptionItem",
+            "label": "Text front",
+            "type": "textarea"
+        }]
+    }],
+    "assets": [{
+        "type": "image",
+        "src": "%block_url%/assets/img/feat_bg.jpg",
+        "tags": ["nature", "sky", "night", "stars", "tree"]
+    }],
+    "defaults": {
+        "header": "The benefits you get along with Qoob...",
+        "description": "<p></p>",
+        "bgColor": "#12222f",
+        "bgImage": "%block_url%/assets/img/feat_bg.jpg",
+        "cards": [{
+            "title": "Card 1",
+            "figureBgColor": "#f0a202",
+            "iconFront": "glyphicon glyphicon-heart",
+            "iconBack": "glyphicon glyphicon-heart",
+            "headerItem": "Easy-to-use tools",
+            "descriptionItem": "<p>Building your website is the easiest of all time now</p>",
+            "order": 0
+        }, {
+            "title": "Card 2",
+            "figureBgColor": "#f0a202",
+            "iconFront": "glyphicon glyphicon-search",
+            "iconBack": "glyphicon glyphicon-search",
+            "headerItem": "Realtime editing",
+            "descriptionItem": "<p>Modifying pages is simple and takes mere minutes</p>",
+            "order": 1
+        }, {
+            "title": "Card 3",
+            "figureBgColor": "#f0a202",
+            "iconFront": "glyphicon glyphicon-time",
+            "iconBack": "glyphicon glyphicon-time",
+            "headerItem": "Responsive design",
+            "descriptionItem": "<p>Your website is fully adjusted to all the existing devices</p>",
+            "order": 2
+        }, {
+            "title": "Card 4",
+            "figureBgColor": "#f0a202",
+            "iconFront": "glyphicon glyphicon-map-marker",
+            "iconBack": "glyphicon glyphicon-map-marker",
+            "headerItem": "User-friendly interface",
+            "descriptionItem": "<p>No confusing admin panels. Just drag and drop</p>",
+            "order": 3
+        }]
+    }
+}

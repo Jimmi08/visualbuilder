@@ -1,0 +1,205 @@
+{
+  "name": "",
+  "groups": "iconBox",
+  "template": "template.hbs",
+  "settings": [
+    {
+      "name": "header",
+      "label": "Header",
+      "type": "text"
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "textarea"
+    },
+    {
+      "name": "bgColor",
+      "type": "colorpicker",
+      "label": "Background color",
+      "colors": [
+        "#f0a202",
+        "#8dc94a",
+        "#5795cc",
+        "#ed4e42",
+        "#a85b97"
+      ]
+    },
+    {
+      "name": "featureList",
+      "label": "Columns",
+      "type": "accordion",
+      "settings": [
+        {
+          "name": "title",
+          "label": "Title",
+          "type": "text"
+        },
+        {
+          "name": "figureVar",
+          "label": "Figure from",
+          "type": "select",
+          "options": [
+            {
+              "id": "v1",
+              "val": "Version 1"
+            },
+            {
+              "id": "v2",
+              "val": "Version 2"
+            },
+            {
+              "id": "v3",
+              "val": "Version 3"
+            }
+          ]
+        },
+        {
+          "name": "featureListItems",
+          "label": "Feature list items",
+          "type": "accordion_flip",
+          "settings": [
+            {
+              "name": "title",
+              "label": "Title",
+              "type": "text"
+            },
+            {
+              "name": "headerItem",
+              "label": "Header",
+              "type": "text"
+            },
+            {
+              "name": "featureListItemText",
+              "label": "Text",
+              "type": "textarea"
+            },
+            {
+              "name": "iconFront",
+              "label": "Icon",
+              "type": "icon",
+              "presets": [
+                "glyphicon glyphicon-heart",
+                "glyphicon glyphicon-search",
+                "glyphicon glyphicon-time",
+                "glyphicon glyphicon-map-marker"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "defaults": {
+    "header": "...and many more!",
+    "description": "<p>Make a beautiful website from scratch on your own for free with Qoob</p>",
+    "bgColor": "#f0a202",
+    "featureList": [
+      {
+        "title": "Card 1",
+        "figureVar": "v2",
+        "featureListItems": [
+          {
+            "title": "Item 1",
+            "headerItem": "Neat and elegant design",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 1
+          },
+          {
+            "title": "Item 2",
+            "headerItem": "Stunning animation",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 2
+          },
+          {
+            "title": "Item 3",
+            "headerItem": "A number of bright themes",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 3
+          },
+          {
+            "title": "Item 4",
+            "headerItem": "Libraries and templates management",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 4
+          }
+        ],
+        "order": 1
+      },
+      {
+        "title": "Card 2",
+        "figureVar": "v1",
+        "featureListItems": [
+          {
+            "title": "Item 1",
+            "headerItem": "Unlimited colors",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 1
+          },
+          {
+            "title": "Item 2",
+            "headerItem": "Clean and clear interface",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 2
+          },
+          {
+            "title": "Item 3",
+            "headerItem": "Responsive design",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 3
+          },
+          {
+            "title": "Item 4",
+            "headerItem": "Customized options",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 4
+          }
+        ],
+        "order": 2
+      },
+      {
+        "title": "Card 3",
+        "figureVar": "v3",
+        "featureListItems": [
+          {
+            "title": "Item 1",
+            "headerItem": "Realtime editing mobile version",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 1
+          },
+          {
+            "title": "Item 2",
+            "headerItem": "All the options for free",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 2
+          },
+          {
+            "title": "Item 3",
+            "headerItem": "Extended documentation",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 3
+          },
+          {
+            "title": "Item 4",
+            "headerItem": "Clean code",
+            "featureListItemText": "<p>Add your own text here. Make it short and clear</p>",
+            "iconFront": "glyphicon glyphicon-search",
+            "order": 4
+          }
+        ],
+        "order": 3
+      }
+    ]
+  }
+}

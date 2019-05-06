@@ -1,0 +1,30 @@
+<script type="text/javascript">
+jQuery("#<%= uniqueId %>").autocomplete({
+    open: function() {
+        jQuery("ul.ui-menu").width( jQuery(this).innerWidth() );
+    },
+    source: function(request, callback) {        
+        var searchParam = request.term;
+        init(searchParam, callback);
+    }
+}).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+        ul.addClass('field-input-autocomplete-list');
+        return jQuery( "<li>" )
+            .attr( "data-value", item.value )
+            .append( "<div>" + item.label + "</div>" )
+            .appendTo( ul );
+        };
+
+function init(query, callback) {
+    var response = [],
+        inputs = jQuery("#<%= uniqueId %>").parents(".ui-accordion").find(".text-autocomplete");
+        inputs.each(function() {
+            if (!_.contains(response, jQuery(this).val())) {
+                response.push(jQuery(this).val());
+            }
+        });
+    callback(response);
+};
+</script>
+<input id="<%= uniqueId %>" class="text-autocomplete" type="text" name="<%= name %>" value="<%= value %>" placeholder="<%= placeholder %>">
+<span class="fa fa-search field-input-autocomplete__icon-search"></span>

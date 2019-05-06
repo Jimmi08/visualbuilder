@@ -1,0 +1,68 @@
+{
+    "name": "",
+    "groups": "callToAction",
+    "template": "template.hbs",
+    "settings": [{
+        "name": "header",
+        "label": "Header",
+        "type": "text"
+    }, {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea"
+    }, {
+        "name": "actionText",
+        "label": "Action button text",
+        "type": "text"
+    }, 
+    {
+        "name": "actionHover",
+        "label": "Button hover effect",
+        "type": "select",
+        "options": [{
+            "id": "hdf",
+            "val": "fade in"
+        }, {
+            "id": "htb",
+            "val": "from top to bottom"
+        }, {
+            "id": "hrl",
+            "val": "from left to right"
+        },
+        {
+            "id": "hcs",
+            "val": "from center to left and right side"
+        },
+        {
+            "id": "hscs",
+            "val": "screw from center to left and right side"
+        },
+        {
+            "id": "hctb",
+            "val": "from center to top and bottom side"
+        }]
+    },
+    {
+        "name": "actionUrl",
+        "label": "Url for action button",
+        "type": "text"
+    },
+    {
+        "name": "bgImageUrl",
+        "label": "Background image",
+        "type": "image"
+    }],
+    "assets": [{
+        "type": "image",
+        "src": "%block_url%/assets/img/call_to_action_bg.jpg",
+        "tags": ["nature", "fog", "mountains", "sky"]
+    }],
+    "defaults": {
+        "header": "Let's be friends!",
+        "bgImageUrl": "%block_url%/assets/img/call_to_action_bg.jpg",
+        "actionText": "Try now",
+        "actionHover" : "hdf",
+        "actionUrl": "http://qoob-builder.com/",
+        "description": "<p>Add this call-to action block to your own website</p>"
+    }
+}
