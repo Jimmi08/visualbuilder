@@ -185,15 +185,18 @@ elseif ($_REQUEST['action'] == 'qoob_add_new_image') {
 			$data['message'] =  'Image is too large. It must be less than 5M!' ;
 		} else {
 			$data['message'] = '';
-                     
-			if ( isset( $_FILES['image'] ) ) {
-				$file = $_FILES['image'];     
+             
+			if ( isset( $_FILES['file_userfile'] ) ) {
+				$file = $_FILES['file_userfile'];     
         
         $fileName = basename($file);
         $fileName = str_replace(array('%','+'),'',$fileName);
         
-        //  add something here? 
- 
+				$fl = e107::getFile();
+				
+				$uploaded = $fl->getUploaded(e_UPLOAD, "unique", array('max_file_count' => 2 ));
+				
+				//print_a($uploaded);
  
 					$data['success'] = true;
 					$data['url'] = $img_thumb;
@@ -205,9 +208,9 @@ elseif ($_REQUEST['action'] == 'qoob_add_new_image') {
 				$data['message'] = 'An error has occured. Your image was not added.';
 			}
 		}
-              
+            
 		echo json_encode( $data );
-		die();
+		die(); 
  
     
 }

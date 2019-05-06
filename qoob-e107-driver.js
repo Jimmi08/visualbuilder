@@ -330,31 +330,7 @@ Qoobe107Driver.prototype.uploadVideo = function(dataFile, cb) {
         cb(error, url);
     });
 };
-
-/**
- * Upload file
- * @param {Array} data
- * @param {uploadCallback} cb - A callback to run.
- */
-Qoobe107Driver.prototype.upload = function(data, cb) {
-    jQuery.ajax({
-        url: '/upload',
-        type: 'POST',
-        data: data,
-        processData: false,
-        contentType: false,
-        error: function(jqXHR, textStatus) {
-            cb(textStatus)
-            console.error(textStatus);
-        },
-        success: function(data) {
-            var json = JSON.parse(data);
-            cb(null, json.url);
-        }
-    });
-};
-
-
+ 
 /**
  * Upload image
  * @param {Array} data
@@ -422,7 +398,7 @@ Qoobe107Driver.prototype.fieldImageActions = function(actions) {
         "label": {"upload": "Upload"},
         "action": function(imageField) {
             imageField.$el.find('.input-file').remove();
-            imageField.$el.append('<input type="file" class="input-file" name="image">');
+            imageField.$el.append('<input type="file" class="input-file" name="file_userfile[]">');
 
             imageField.$el.find('.input-file').trigger('click');
 
@@ -436,7 +412,7 @@ Qoobe107Driver.prototype.fieldImageActions = function(actions) {
                 } else {
                     if (file.match(/.(jpg|jpeg|png|gif)$/i)) {
                         var formData = new FormData();
-                        formData.append('image', jQuery(this)[0].files[0], jQuery(this)[0].files[0].name);
+                        formData.append('file_userfile[]', jQuery(this)[0].files[0], jQuery(this)[0].files[0].name);
                         formData.append("action", "qoob_add_new_image");
                         self.upload(formData, function(error, url) {
                             if ('' !== url) {
@@ -490,4 +466,19 @@ Qoobe107Driver.prototype.fieldImageActions = function(actions) {
     var glueActions = actions.concat(customActions);
 
     return glueActions;
+};
+
+/**
+ * Upload image
+ * @param {Array} dataFile
+ * @param {uploadCallback} cb - A callback to run.
+ */
+Qoobe107Driver.prototype.uploadImage = function(dataFile, cb) {
+    var formData = new FormData();
+    formData.append('image', dataFile[0]);
+    formData.append("action", "qoob_add_new_image");
+
+    this.upload(formData, function(error, url) {
+        cb(error, url);
+    });
 };
