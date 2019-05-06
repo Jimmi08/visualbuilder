@@ -361,31 +361,7 @@ Qoobe107Driver.prototype.upload = function(data, cb) {
     });
 };
 
-/**
- * Show dialog media WP
- * @param {openUploadDialogCallback} cb - A callback to run.
- */
-Qoobe107Driver.prototype.openUploadDialog = function(cb) {
-    //Create media upload frame
-    var mcFrame = wp.media({
-        multiple: false // Set to true to allow multiple files to be selected  
-    });
-    //On submit - save submitted url
-    mcFrame.on('select', function() {
-        // Get media attachment details from the frame state
-        var attachment = mcFrame.state().get('selection').first().toJSON();
-        if (attachment) {
-            cb(null, attachment.url);
-        } else {
-            cb(true);
-            console.error('Please select an image to upload!');
-        }
-
-    }.bind(this));
-    //Open media frame
-    mcFrame.open();
-};
-
+ 
 /**
  * Custom field image action
  * @param {Array} actions
@@ -430,21 +406,7 @@ Qoobe107Driver.prototype.fieldImageActions = function(actions) {
             });
         },
         "icon": ""
-    }, {
-        "id": "wml",
-        "label": {"e107MediaLibrary": "e107 Media library"},
-        "action": function(imageField) {
-            self.openUploadDialog(function(error, url) {
-                if ('' !== url) {
-                    imageField.changeImage(url);
-                    if (imageField.$el.find('.edit-image').hasClass('empty')) {
-                        imageField.$el.find('.edit-image').removeClass('empty');
-                    }
-                }
-            });
-        },
-        "icon": ""
-    }, {
+    },  {
         "id": "reset",
         "label": {"resetToDefault": "Reset to default"},
         "action": function(imageField) {

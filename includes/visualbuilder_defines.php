@@ -25,4 +25,7 @@ define("VB_INIT", TRUE);
 define("VB_DATATABLE", 'qoobbuilder_data');
 define("VB_PLUGINNAME", 'visualbuilder');
 
+define("VB_IMAGE_DIR", e_PLUGIN.'visualbuilder/img/');
+define("VB_IMAGE_DIR_ABS", e_PLUGIN_ABS.'visualbuilder/img/');
+define("VB_IMAGE_DIR_FULL", SITEURLBASE.e_PLUGIN_ABS.'visualbuilder/img/'); 
 ?>

@@ -193,24 +193,32 @@ elseif ($_REQUEST['action'] == 'qoob_add_new_image') {
         $fileName = str_replace(array('%','+'),'',$fileName);
         
 				$fl = e107::getFile();
+
+				$uploaded = $fl->getUploaded(e_TEMP, "unique", array('max_file_count' => 2 ));
 				
-				$uploaded = $fl->getUploaded(e_UPLOAD, "unique", array('max_file_count' => 2 ));
+				$localfile = $uploaded[0]['name'];
+
+				@copy(e_TEMP.$localfile, VB_IMAGE_DIR.$localfile);
+				@unlink(e_TEMP.$localfile);
 				
-				//print_a($uploaded);
+				$img_thumb = VB_IMAGE_DIR_FULL. $uploaded[0]['name'];
  
-					$data['success'] = true;
-					$data['url'] = $img_thumb;
+				$data['success'] = true;
+				$data['url'] = $img_thumb;
 			 
 			}
 
-			if ( ! $attachment_id ) {
+			if ( ! $img_thumb  ) {
 				$data['error'] = false;
 				$data['message'] = 'An error has occured. Your image was not added.';
 			}
 		}
             
-		echo json_encode( $data );
-		die(); 
+		$response = json_encode($data);
+		$js->_reset();
+		ob_clean();
+		$js->addTextResponse($response)->sendResponse();     
+		exit;  
  
     
 }

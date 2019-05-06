@@ -78,6 +78,7 @@ class Qoob {
           "mode": "'.$this->qoobprod.'",
           "qoobUrl": "' . $this->builderpath . '", 
           "skinUrl": "' . $this->skinUrl . '", 
+          "skip":["jquery"],
           "driver": new Qoobe107Driver({
               "pageId": "' . $this->id . '" ,
               "iframeUrl": "' . $iframeUrl . '" ,
@@ -94,7 +95,7 @@ class Qoob {
   
   function init() {
        $this->builderpath  = VB_PATH_ABS.'/qoob/';
-       $this->qoobprod  = 'dev';    //prod
+       $this->qoobprod  = 'prod';    //prod
   }
  
  private function getDriverHtml() {

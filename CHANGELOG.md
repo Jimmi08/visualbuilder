@@ -7,6 +7,8 @@ All notable changes to this project will be documented in this file.
 - fixed: removed null from text field in sql file
 - fixed: correct name for image media input field, it has to be array, otherwise e107 upload doesn't work
 - fixed: go back path
+- added: image change / upload functionality
+- removed: option to media manager 
 
 ## [1.0.0] - 2019-05-06
 
