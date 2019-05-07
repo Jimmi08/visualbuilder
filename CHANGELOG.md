@@ -2,13 +2,16 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
-- overriding new skin by custom plugin
+
 - overriding used elements by theme
-- fixed: removed null from text field in sql file
-- fixed: correct name for image media input field, it has to be array, otherwise e107 upload doesn't work
-- fixed: go back path
+
+## [1.1.0] - 2019-05-07
 - added: image change / upload functionality
-- removed: option to media manager 
+- fixed: go back path
+- fixed: correct name for image media input field, it has to be array, otherwise e107 upload doesn't work
+- fixed: removed null from text field in sql file
+- removed: option to media manager
+- added: possibility to override new skin by custom plugin
 
 ## [1.0.0] - 2019-05-06
 

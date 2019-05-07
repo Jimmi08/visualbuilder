@@ -91,7 +91,10 @@ function getLibs() {
   // $pref_libs is array 
   $pref_libs =  e107::getPlugConfig(VB_PLUGINNAME)->getPref('qoob_library');
    
-  foreach($pref_libs as $pref_lib) {
+  /* with groups first setting is used, so reverse priority [normally latest is last one] */
+  $pref_libs = array_reverse($pref_libs); 
+  
+  foreach($pref_libs as $pref_lib) { 
        $value =$pref_lib;
        //$value = e107::getParser()->replaceConstants($pref_lib, 'full', true);
        $libs =  json_decode( file_get_contents( $value ), true );
@@ -105,7 +108,6 @@ function getLibs() {
 				array_push( $result, $libs );
 			}       
   }
-
  return $result;
 } 
 

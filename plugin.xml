@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<e107Plugin name="Visual Builder" lan="Visual Builder" version="1.0.0" date="2019-04-17" compatibility="2.0" installRequired="true" >
+<e107Plugin name="Visual Builder" lan="Visual Builder" version="1.1.0" date="2019-05-07" compatibility="2.0" installRequired="true" >
 	<author name="Jimako" url="https://www.e107.sk" />
 	<summary lan="">e107 Visual Builder based on Qoob </summary>
 	<description lan="">Qoob Visual Builder for e107</description>
