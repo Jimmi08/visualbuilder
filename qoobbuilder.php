@@ -29,7 +29,7 @@ if (!defined('VB_INIT')) {
 class Qoob {
 
   private $builderpath = VB_PLUGINNAME.'/qoob/';
-  private $qoobpath = 'prod';  
+  private $qoobpath = 'dev';  
   private $pagedata = array();
   
   
@@ -61,7 +61,7 @@ class Qoob {
     $this->skin =  e107::getPlugConfig(VB_PLUGINNAME)->getPref('qoob_skin');
     $this->skinUrl =  e107::getPlugConfig(VB_PLUGINNAME)->getPref('qoob_skinUrl');
     
-    $iframeUrl = VB_PATH_ABS.'/page.php?entity_id='.$this->entity_id.'&entity_type=custom&qoobbuilder=true';
+    $iframeUrl = VB_PATH_FULL.'page.php?entity_id='.$this->entity_id.'&entity_type=custom&qoobbuilder=true';
  
     $frontendPageUrl = e107::url(VB_PLUGINNAME, 'page', $this->pagedata, 'full');
 
@@ -95,7 +95,7 @@ class Qoob {
   
   function init() {
        $this->builderpath  = VB_PATH_ABS.'/qoob/';
-       $this->qoobprod  = 'prod';    //prod
+       $this->qoobprod  = 'dev';    //prod
   }
  
  private function getDriverHtml() {

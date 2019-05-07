@@ -288,19 +288,18 @@ class qoobbuilder_data_form_ui extends e_admin_form_ui
 			break;
 			
 			case 'write': // Edit Page
-				$libraries = explode(",",$curVal);
-  
-        $text .= "<table>";
-        foreach($curVal as $type => $library) {
-          $text .= "<tr><td><b>".ucfirst($type).": </b> <td><td>".$library."<td><tr>";
-          
-        }
-        $text .= "</table>";
-        return $text;
+		 
+				$text .= "<table>";
+				foreach($curVal as $type => $library) {
+				$text .= "<tr><td><b>".ucfirst($type).": </b> <td><td>".$library."<td><tr>";
+				
+				}
+				$text .= "</table>";
+				return $text;
 			break;
- 
-		}
 		
+		}
+				
 		return null;
 	}
   	
