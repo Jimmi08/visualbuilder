@@ -90,7 +90,7 @@ Qoobe107Driver.prototype.savePageData = function(data, cb) {
  * @param {loadPageDataCallback} cb - A callback to run.
  */
 Qoobe107Driver.prototype.loadPageData = function(cb) {
-    console.log(this.options.pageId);
+    //console.log(this.options.pageId);
     jQuery.ajax({
         url: this.options.ajaxUrl,
         type: 'POST',
@@ -223,7 +223,7 @@ Qoobe107Driver.prototype.loadTranslations = function(cb) {
 Qoobe107Driver.prototype.mainMenu = function(menu) {
     var self = this;
     //console.log(self.getFrontendPageUrl());
-     console.log(this.options.frontendPageUrl);
+    // console.log(this.options.frontendPageUrl);
     //console.log(self.getIframePageUrl());
     //console.log(this.options.iframeUrl);
     menu.push({
