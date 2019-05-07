@@ -20,11 +20,7 @@ if (!defined('VB_INIT')) {
  
 /* it is builder */
 if(isset($_GET['qoobbuilder']) && !empty($_GET['qoobbuilder']))  {
-   
  
-  e107::library('load', 'superfish');
-  
-  
  // e107::css(VB_PLUGINNAME, 'assets/css/megafish.css'); 
   e107::css(VB_PLUGINNAME, 'assets/css/magnific-popup.css');   
   e107::css(VB_PLUGINNAME, 'assets/css/owl.carousel.min.css');   
