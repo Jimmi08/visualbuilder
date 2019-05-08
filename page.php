@@ -77,21 +77,24 @@ class qoobbuilder_front
 		{
 			$this->entity_type =  e107::getParser()->toDb($_GET['entity_type']);
     }
- 
-    e107::js(VB_PLUGINNAME, 'qoob/qoob-frontend-starter.js', 'jquery');
-    e107::js(VB_PLUGINNAME, 'qoob-e107-driver.js', 'jquery'); 
-  
-    $inlinecode = 'var starter = new QoobStarter({
-    "qoobUrl": "' . $this->builderpath . '",
-    "mode": "' .$this->qoobprod. '", 
-    "skip":["jquery"],
-    "driver": new Qoobe107Driver( { 
-      "ajaxUrl": "' . $this->ajaxUrl . '" ,
-      "pageId": "' . $_GET['entity_id'] . '" ,
-      }
-    )});';
     
-    e107::js('footer-inline', $inlinecode);  
+    //Frontend should be managed by theme. 
+    if(isset($_GET['qoobbuilder']) && !empty($_GET['qoobbuilder']))  { 
+      e107::js(VB_PLUGINNAME, 'qoob/qoob-frontend-starter.js', 'jquery');
+      e107::js(VB_PLUGINNAME, 'qoob-e107-driver.js', 'jquery'); 
+    
+      $inlinecode = 'var starter = new QoobStarter({
+      "qoobUrl": "' . $this->builderpath . '",
+      "mode": "' .$this->qoobprod. '", 
+      "skip":["jquery"],
+      "driver": new Qoobe107Driver( { 
+        "ajaxUrl": "' . $this->ajaxUrl . '" ,
+        "pageId": "' . $_GET['entity_id'] . '" ,
+        }
+      )});';
+      
+      e107::js('footer-inline', $inlinecode);
+    }  
 	}
   
   function run() {
