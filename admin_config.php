@@ -3,6 +3,7 @@
 // Generated e107 Plugin Admin Area 
 
 require_once('../../class2.php');
+
 if (!getperms('P')) 
 {
 	e107::redirect('admin');
@@ -13,6 +14,8 @@ if (!defined('VB_INIT')) {
 	require_once(e_PLUGIN.'visualbuilder/includes/visualbuilder_defines.php');
 }
  
+e107::lan('visualbuilder',true);
+
  /* for time being e_event doesn't work*/
 e107_require_once(e_PLUGIN . 'visualbuilder/includes/visualbuilder.class.php');
 
@@ -20,8 +23,7 @@ $vb = new qoobbuilder();
 $vb->updateAddonList();
 $types = $vb->setLibrary();
 $skin = $vb->setSkin();
- 
- 
+    
 class qoobbuilder_adminArea extends e_admin_dispatcher
 {
 
@@ -211,6 +213,14 @@ class qoobbuilder_data_ui extends e_admin_ui
 				'writeParms' => array('readonly'=>true, 'size'=>'block-level'),
 				'tab'    => 0,
 			),
+			'qoob_mode'  => array(
+				'title'   => "Production Mode",
+				'type'    => 'boolean',
+				'data'    => int,
+				'writeParms' => array('enabled'=>LAN_PLUGIN_VB_MODE_PROD, 'disabled'=>LAN_PLUGIN_VB_MODE_DEV), 
+				'tab'    => 0,
+			),
+
 		);
 
 	

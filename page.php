@@ -17,6 +17,8 @@ if (!defined('e107_INIT'))
 if (!defined('VB_INIT')) { 
 	require_once(e_PLUGIN.'visualbuilder/includes/visualbuilder_defines.php');
 }
+
+e107::lan('visualbuilder',true);
  
 /* it is builder */
 if(isset($_GET['qoobbuilder']) && !empty($_GET['qoobbuilder']))  {
@@ -45,23 +47,7 @@ if(isset($_GET['qoobbuilder']) && !empty($_GET['qoobbuilder']))  {
   e107::js(VB_PLUGINNAME, 'assets/js/froogaloop.min.js', 'jquery'); 
   e107::js(VB_PLUGINNAME, 'assets/js/common.js', 'jquery');  
  
-  $builderpath  = VB_PATH_ABS.'qoob/';
-  $ajaxUrl = VB_PATH_ABS.'includes/ajax.php';
-
-  e107::js(VB_PLUGINNAME, 'qoob/qoob-frontend-starter.js', 'jquery');
-  e107::js(VB_PLUGINNAME, 'qoob-e107-driver.js', 'jquery'); 
  
-  $inlinecode = 'var starter = new QoobStarter({
-  "qoobUrl": "' . $builderpath . '",
- "mode": "prod",  
-  "skip":["jquery"],
-  "driver": new Qoobe107Driver( { 
-    "ajaxUrl": "' . $ajaxUrl . '" ,
-    "pageId": "' . $_GET['entity_id'] . '" ,
-     }
-  )});';
-  
-  e107::js('footer-inline', $inlinecode);   
  
 }
  
@@ -70,9 +56,19 @@ class qoobbuilder_front
 
   public $id = null;
   public $entity_type = '';
+  private $builderpath = 'qoob';
+  private $ajaxUrl = 'includes/ajax.php';
+  private $qoobprod = 'prod';
 
 	function __construct()
 	{
+    $qoobprod =  e107::getPlugConfig(VB_PLUGINNAME)->getPref('qoob_mode');
+    $this->qoobprod = ($qoobprod ? "prod" : "dev");
+
+    $this->builderpath =  VB_PATH_ABS.'qoob/';
+
+    $this->ajaxUrl =  VB_PATH_ABS.'includes/ajax.php';
+
     if(isset($_GET['entity_id']) && !empty($_GET['entity_id']))
 		{
 			$this->entity_id =  (int)$_GET['entity_id'] ;
@@ -80,13 +76,39 @@ class qoobbuilder_front
     if(isset($_GET['entity_type']) && !empty($_GET['entity_type']))
 		{
 			$this->entity_type =  e107::getParser()->toDb($_GET['entity_type']);
-		}
+    }
  
+    e107::js(VB_PLUGINNAME, 'qoob/qoob-frontend-starter.js', 'jquery');
+    e107::js(VB_PLUGINNAME, 'qoob-e107-driver.js', 'jquery'); 
+  
+    $inlinecode = 'var starter = new QoobStarter({
+    "qoobUrl": "' . $this->builderpath . '",
+    "mode": "' .$this->qoobprod. '", 
+    "skip":["jquery"],
+    "driver": new Qoobe107Driver( { 
+      "ajaxUrl": "' . $this->ajaxUrl . '" ,
+      "pageId": "' . $_GET['entity_id'] . '" ,
+      }
+    )});';
+    
+    e107::js('footer-inline', $inlinecode);  
 	}
+  
+  function run() {
+    // TODO: replace $_GET
+    if(isset($_GET['qoobbuilder']) && !empty($_GET['qoobbuilder']))  {
+      $this->buildingPage();
+   }
+   else {
+      $this->displayPage();
+   }
+  }
+  
   public function buildingPage() {
  
-   echo '
-  <div class="loader-wrap"></div>
+   $ns = e107::getRender();
+   $text =  '
+   <div class="loader-wrap"></div>
     <div class="loader">
         <span></span>
         <span></span>
@@ -95,11 +117,11 @@ class qoobbuilder_front
     </div>
     <!-- qoob blocks container -->
     <div id="qoob-blocks"></div>
-   
    ';
+   $ns->tablerender(LAN_PLUGIN_VB_TR_CAPTION, $text);
    
   } 
-	public function run()
+	public function displayPage()
 	{
 
 		$sql = e107::getDB(); 					// mysql class object
@@ -117,29 +139,20 @@ class qoobbuilder_front
       $path = VB_PATH."pages/";
       $filename = $filename.".html";
 		  $text .= file_get_contents($path.$filename);
-			$ns->tablerender("My Caption", $text);
+			$ns->tablerender(LAN_PLUGIN_VB_TR_CAPTION, $text);
 
 		}
 	}
  
 
 }
-
-
-                
+             
 $qoobbuilderFront = new qoobbuilder_front;
 require_once(HEADERF); 					// render the header (everything before the main content area)
-
-if(isset($_GET['qoobbuilder']) && !empty($_GET['qoobbuilder']))  {
-   $qoobbuilderFront->buildingPage();
-}
-else {
-    $qoobbuilderFront->run();
-}
-
+$qoobbuilderFront->run();
 require_once(FOOTERF);					// render the footer (everything after the main content area)
 exit; 
 
-// For a more elaborate plugin - please see e107_plugins/gallery */
+ 
 
 ?>

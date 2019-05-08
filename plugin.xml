@@ -16,6 +16,7 @@
 	<pluginPrefs>
 		<pref name="qoob_library"></pref>
 		<pref name="qoob_skin"></pref>
-		<pref name="qoob_page_templates"></pref>    
+		<pref name="qoob_page_templates"></pref> 
+		<pref name="qoob_mode"></pref>     
 	</pluginPrefs>
 </e107Plugin>

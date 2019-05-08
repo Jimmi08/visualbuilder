@@ -28,13 +28,21 @@ if (!defined('VB_INIT')) {
 
 class Qoob {
 
-  private $builderpath = VB_PLUGINNAME.'/qoob/';
   private $qoobpath = 'dev';  
   private $pagedata = array();
+
+  private $builderpath = 'qoob';
+  private $ajaxUrl = 'includes/ajax.php';
+  private $qoobprod = 'prod';  
   
-  
- 
-  public function __construct( $mode = 'prod' ) {
+  public function __construct() {
+
+    $qoobprod =  e107::getPlugConfig(VB_PLUGINNAME)->getPref('qoob_mode');
+    $this->qoobprod = ($qoobprod ? "prod" : "dev");
+
+    $this->builderpath =  VB_PATH_ABS.'qoob/';
+
+    $this->ajaxUrl =  VB_PATH_ABS.'includes/ajax.php';
 
     if(isset($_GET['id']) && !empty($_GET['id']))
 		{
@@ -55,7 +63,7 @@ class Qoob {
 		{
 			//$this->entity_type =  e107::getParser()->toDb($_GET['entity_type']) = 'custom';
       $this->entity_type =  'custom';
-		}   
+    }   
     
     // get skin
     $this->skin =  e107::getPlugConfig(VB_PLUGINNAME)->getPref('qoob_skin');
@@ -64,8 +72,7 @@ class Qoob {
     $iframeUrl = VB_PATH_FULL.'page.php?entity_id='.$this->entity_id.'&entity_type=custom&qoobbuilder=true';
  
     $frontendPageUrl = e107::url(VB_PLUGINNAME, 'page', $this->pagedata, 'full');
-
-    $ajaxUrl = 'includes/ajax.php';
+ 
     
     $this->init();
     //pages are in root because hardcoded css links */
@@ -75,15 +82,15 @@ class Qoob {
 
       //todo: move this to behaviours 
        $inlinecode = ' var starter = new QoobStarter({
-          "mode": "'.$this->qoobprod.'",
-          "qoobUrl": "' . $this->builderpath . '", 
+          "qoobUrl": "' . $this->builderpath . '",
+          "mode": "'.$this->qoobprod.'", 
           "skinUrl": "' . $this->skinUrl . '", 
           "skip":["jquery"],
           "driver": new Qoobe107Driver({
               "pageId": "' . $this->id . '" ,
               "iframeUrl": "' . $iframeUrl . '" ,
               "frontendPageUrl": "' . $frontendPageUrl . '" ,                      
-              "ajaxUrl": "' . $ajaxUrl . '" ,
+              "ajaxUrl": "' . $this->ajaxUrl . '" ,
               "page": "' . $this->pagedata['entity_filename'] . '.html" ,
               // "translationsUrl": "../qoob/skins/simple/locale/ru.json"
           })
@@ -95,7 +102,7 @@ class Qoob {
   
   function init() {
        $this->builderpath  = VB_PATH_ABS.'/qoob/';
-       $this->qoobprod  = 'dev';    //prod
+       
   }
  
  private function getDriverHtml() {
