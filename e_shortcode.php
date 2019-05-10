@@ -24,23 +24,23 @@ class visualbuilder_shortcodes extends e_shortcode
      
 	}
  
-  /* {VISUALBUILDER: id=1} */
-
+	/* returns saved HTML output for ID 					*/
+	/* @id record id 									  					*/
+  /* example:  {VISUALBUILDER: id=1}            */
   function sc_visualbuilder($parm = '')
   {
-    $id = $parm['id'];
-    $where = ' WHERE id = '.id;
-    
-		if($record = e107::getDb()->retrieve(VB_DATATABLE,'*', $where )) 	
-		{
- 
-		  $filename = $record['entity_filename']; 
-      $path = VB_PATH."pages/";
-      $filename = $filename.".html";
-		  $text .= file_get_contents($path.$filename);
- 
-		}    
- 
+		$id = $parm['id'];	
+		if($id) {   
+			$where = ' WHERE id = '.$id;
+			if($record = e107::getDb()->retrieve(VB_DATATABLE,'*', $where )) 	
+			{
+				$filename = $record['entity_filename']; 
+				$path = VB_PATH."pages/";
+				$filename = $filename.".html";
+				$text .= file_get_contents($path.$filename);
+	
+			}    
+		} 
     return $text;
   }
 
