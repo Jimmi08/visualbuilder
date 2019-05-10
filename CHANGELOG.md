@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file.
 ## [Unreleased]
 
 - overriding used elements by theme
+- using completely different skin by other plugin
+- e_admin functionality, mainly for Elements plugin
+
 
 ## [1.1.0] - 2019-05-07
 - added: image change / upload functionality

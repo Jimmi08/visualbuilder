@@ -62,8 +62,8 @@ class qoobbuilder_event
 	 */
 	function visualbuilder_update_addon_list()
 	{
-		e107_require_once(e_PLUGIN . 'qoobbuilder/includes/visualbuilder.class.php');
-		$visualbuilder = new visualbuilder();
+		e107_require_once(e_PLUGIN . 'visualbuilder/includes/visualbuilder.class.php');
+		$visualbuilder = new goobbuilder();
 		$visualbuilder->updateAddonList();
     $visualbuilder->setLibrary();
     $visualbuilder->setSkin();		 

@@ -9,9 +9,9 @@ if(!defined('e107_INIT'))
 {
 	exit;
 }
-
+ 
 if (!defined('VB_INIT')) { 
-	require_once(e_PLUGIN.'visualbuilder/visualbuilder_defines.php');
+	require_once('visualbuilder_defines.php');
 } 
  
 e107::lan(VB_PLUGINNAME, true, true);

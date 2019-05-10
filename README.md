@@ -18,10 +18,10 @@ https://github.com/webarkio/wp_qoob
 See CHANGELOG.md to see what is done
 
 ### TODO:
-- upload image functionality
+- ~~upload image functionality~~
 - e107 media manager support
 - admin visual improvements
 - override default css and with theme files
-- testing with different skin and different elements
+- ~~testing with different skin and different elements~~
 - to solve css + js conflicts with theme itself
 - code cleaning
