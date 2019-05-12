@@ -29,9 +29,15 @@ class visualbuilder_shortcodes extends e_shortcode
   /* example:  {VISUALBUILDER: id=1}            */
   function sc_visualbuilder($parm = '')
   {
+		//in case if shortcode is directly in layout, load nothing if you are editing element
+		$text = '';
+		if(e_CURRENT_PLUGIN == "visualbuilder")  {
+      return $text;
+		}
 		$id = $parm['id'];	
+		 
 		if($id) {   
-			$where = ' WHERE id = '.$id;
+			$where = ' WHERE id = '.$id;   
 			if($record = e107::getDb()->retrieve(VB_DATATABLE,'*', $where )) 	
 			{
 				$filename = $record['entity_filename']; 
